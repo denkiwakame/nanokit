@@ -22,7 +22,7 @@
 > 🪄 **Pixi** as a [shell tool manager](https://prefix.dev/blog/using-pixi-as-a-system-package-manager-with-shortcuts-and-completions) - Keep your tools up-to-date by declarative management
 > 🐚 **zsh** 🎩 **sheldon** 🚀 **starship** - Modern shell experience with plugin management
 
-<img src="https://github.com/user-attachments/assets/018f29d0-1daf-4d8d-b157-c861ece69f8f" width="500"><img src="https://github.com/user-attachments/assets/2e3deec3-0191-4550-9c15-68749a402be4" width="500">
+<img src="https://github.com/user-attachments/assets/cb9c1905-577d-4db2-ab4c-1bfa9efce720" width="400"><img src="https://github.com/user-attachments/assets/56fb4d2e-7a40-4be2-8a97-99cdb1308b28" width="400">
 
 ## ⚙️ Setup - *All you need is pixi*
 
