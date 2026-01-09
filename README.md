@@ -19,6 +19,7 @@
 
 > ⚡ A lightweight, fast, and efficient **cross-platform** development setup for Linux (x86/arm), OSX  
 > ✨ **No sudo required** - Everything installs to `$HOME/.pixi`, completely user-local  
+> 🪄 **Pixi** as a [shell tool manager](https://prefix.dev/blog/using-pixi-as-a-system-package-manager-with-shortcuts-and-completions) - Keep your tools up-to-date by declarative management
 > 🐚 **zsh** 🎩 **sheldon** 🚀 **starship** - Modern shell experience with plugin management
 
 <img src="https://github.com/user-attachments/assets/018f29d0-1daf-4d8d-b157-c861ece69f8f" width="500"><img src="https://github.com/user-attachments/assets/2e3deec3-0191-4550-9c15-68749a402be4" width="500">
@@ -78,7 +79,7 @@ git clone https://github.com/denkiwakame/nanokit.git
 cd nanokit
 ```
 
-### Step 3-a: nanokit install (recommended for new environmnet)
+### Step 3-a: nanokit install (recommended for new environment)
 
 ```bash
 ./nanokit install
@@ -177,7 +178,7 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | **gh** | GitHub CLI | `gh` | [cli/cli](https://github.com/cli/cli) |
 | **zsh** | Z shell | `zsh`, `zsh-5.9` | [zsh-users/zsh](https://github.com/zsh-users/zsh) |
 | **sheldon** | Fast and configurable shell plugin manager | `sheldon` | [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) |
-| **starship** | Fast and configurable shell plugin manager | `starship` | [starship/starship](https://github.com/starship/starship) |
+| **starship** | Minimal, beautifl prompt for any shell | `starship` | [starship/starship](https://github.com/starship/starship) |
 | **sshs** | SSH connection manager | `sshs` | [quantumsheep/sshs](https://github.com/quantumsheep/sshs) |
 | **htop** | Interactive process viewer | `htop` | [htop-dev/htop](https://github.com/htop-dev/htop) |
 | **fzf** | Fuzzy finder | `fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
