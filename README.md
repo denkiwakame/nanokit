@@ -264,7 +264,6 @@ The tmux configuration uses `Ctrl+a` as the prefix key (instead of the default `
 |-------------|-------------|
 | `Ctrl+a` then `?` | Show help and all key bindings |
 | `Ctrl+a` then `r` | Reload tmux configuration |
-| `Ctrl+a` then `Ctrl+a` | Send literal `Ctrl+a` to the application |
 
 #### Window Management
 | Key Binding | Description |
@@ -278,7 +277,7 @@ The tmux configuration uses `Ctrl+a` as the prefix key (instead of the default `
 | Key Binding | Description |
 |-------------|-------------|
 | `Ctrl+a` then `-` | Split window horizontally |
-| `Ctrl+a` then `|` | Split window vertically |
+| `Ctrl+a` then `\|` | Split window vertically |
 | `Ctrl+a` then `h` | Move to left pane |
 | `Ctrl+a` then `j` | Move to bottom pane |
 | `Ctrl+a` then `k` | Move to top pane |
