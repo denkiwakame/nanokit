@@ -1,0 +1,111 @@
+version = 1
+
+[envs.neovim]
+channels = ["conda-forge"]
+dependencies = { nvim = "*", neovim = "*", nodejs = "*", python = "*", lua = "*", luarocks = "*" }
+exposed = { nvim = "nvim" }
+
+[envs.zsh]
+channels = ["conda-forge"]
+dependencies = { zsh = "5.9", starship = "*", sheldon = "*" }
+exposed = { zsh = "zsh", starship = "starship", sheldon = "sheldon" }
+
+[envs.git]
+channels = ["conda-forge"]
+dependencies = { git = "*" }
+exposed = { git = "git", git-cvsserver = "git-cvsserver", git-receive-pack = "git-receive-pack", git-shell = "git-shell", git-upload-archive = "git-upload-archive", git-upload-pack = "git-upload-pack", gitk = "gitk", scalar = "scalar" }
+
+[envs.sshs]
+channels = ["conda-forge"]
+dependencies = { sshs = "*" }
+exposed = { sshs = "sshs" }
+
+[envs.htop]
+channels = ["conda-forge"]
+dependencies = { htop = "*" }
+exposed = { htop = "htop" }
+
+[envs.fzf]
+channels = ["conda-forge"]
+dependencies = { fzf = "*" }
+exposed = { fzf = "fzf" }
+
+[envs.go-ghq]
+channels = ["conda-forge"]
+dependencies = { go-ghq = "*" }
+exposed = { ghq = "ghq" }
+
+[envs.zoxide]
+channels = ["conda-forge"]
+dependencies = { zoxide = "*" }
+exposed = { zoxide = "zoxide" }
+
+[envs.make]
+channels = ["conda-forge"]
+dependencies = { make = "*" }
+exposed = { make = "make" }
+
+[envs.tig]
+channels = ["conda-forge"]
+dependencies = { tig = "*" }
+exposed = { tig = "tig" }
+
+[envs.bottom]
+channels = ["conda-forge"]
+dependencies = { bottom = "*" }
+exposed = { btm = "btm" }
+
+[envs.tree]
+channels = ["conda-forge"]
+dependencies = { tree = "*" }
+exposed = { tree = "tree" }
+
+[envs.xsel]
+channels = ["conda-forge"]
+dependencies = { xsel = "*" }
+exposed = { xsel = "xsel" }
+
+[envs.gh]
+channels = ["conda-forge"]
+dependencies = { gh = "*" }
+exposed = { gh = "gh" }
+
+[envs.pueue]
+channels = ["conda-forge"]
+dependencies = { pueue = "*" }
+exposed = { pueue = "pueue", pueued = "pueued" }
+
+[envs.tmux]
+channels = ["conda-forge"]
+dependencies = { tmux = "==3.5" }
+exposed = { tmux = "tmux" }
+
+[envs.dua-cli]
+channels = ["conda-forge"]
+dependencies = { dua-cli = "*" }
+exposed = { dua = "dua" }
+
+[envs.diskonaut]
+channels = ["conda-forge"]
+dependencies = { diskonaut = "*" }
+exposed = { diskonaut = "diskonaut" }
+
+[envs.bat]
+channels = ["conda-forge"]
+dependencies = { bat = "*" }
+exposed = { bat = "bat" }
+
+[envs.nodejs]
+channels = ["conda-forge"]
+dependencies = { nodejs = "*" }
+exposed = { node = "node", npm = "npm", npx = "npx" }
+
+[envs.dotter-rs]
+channels = ["conda-forge"]
+dependencies = { dotter-rs = "*" }
+exposed = { dotter = "dotter" }
+
+[envs.lsdeluxe]
+channels = ["conda-forge"]
+dependencies = { lsdeluxe = "*" }
+exposed = { lsd = "lsd" }

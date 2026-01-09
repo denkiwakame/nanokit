@@ -1,0 +1,28 @@
+{
+  "http.proxy": "",
+  "suggest.timeout": 5000,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "lua",
+    "css",
+    "javascript",
+    "typescript",
+    "python",
+    "yaml",
+    "toml",
+    "typescriptreact",
+    "html",
+    "json",
+    "jsx",
+    "tex",
+    "cpp",
+    "astro",
+    "rust"
+  ],
+  "[lua]": {
+    "prettier.tabWidth": 2
+  },
+  "coc.preferences.formatOnSave": true,
+  "yaml.format.enable": true,
+  "latex.lint.onSave": true,
+  "python.formatting.provider": "ruff"
+}

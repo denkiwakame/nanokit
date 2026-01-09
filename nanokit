@@ -1,0 +1,179 @@
+#!/bin/bash
+
+# 🛠️ nanokit - minimal development environment
+# Command-line tool for managing nanokit setup
+
+set -e  # Exit on any error
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+# Print colored output
+print_step() {
+    echo -e "${BLUE}🔧 $1${NC}"
+}
+
+print_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
+print_info() {
+    echo -e "${CYAN}ℹ️  $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+# Print ASCII art
+print_ascii_art() {
+    echo -e "${PURPLE}"
+    cat << 'EOF'
+
+                                                   88         88
+                                                   88         ""    ,d
+                                                   88               88
+8b,dPPYba,   ,adPPYYba,  8b,dPPYba,    ,adPPYba,   88   ,d8   88  MM88MMM
+88P'   `"8a  ""     `Y8  88P'   `"8a  a8"     "8a  88 ,a8"    88    88
+88       88  ,adPPPPP88  88       88  8b       d8  8888[      88    88
+88       88  88,    ,88  88       88  "8a,   ,a8"  88`"Yba,   88    88,
+88       88  `"8bbdP"Y8  88       88   `"YbbdP"'   88   `Y8a  88    "Y888
+
+nanokit - minimal development environment
+
+EOF
+    echo -e "${NC}"
+}
+
+# Show help
+show_help() {
+    print_ascii_art
+    
+    echo -e "${CYAN}Usage:${NC}"
+    echo "  nanokit <command>"
+    echo ""
+    echo -e "${CYAN}Commands:${NC}"
+    echo "  install     🚀 Install and setup nanokit environment"
+    echo "  uninstall   🗑️ Uninstall nanokit and remove all configurations"
+    echo "  --help      📖 Show this help message"
+    echo ""
+    echo -e "${CYAN}Examples:${NC}"
+    echo "  nanokit install"
+    echo "  nanokit uninstall"
+    echo ""
+}
+
+# Install nanokit
+install() {
+    print_ascii_art
+    
+    print_step "Starting nanokit installation..."
+    echo ""
+    
+    # Install dotter
+    print_step "Installing dotter..."
+    pixi global install dotter-rs
+    print_success "dotter installed"
+    echo ""
+    
+    # Backup existing pixi-global.toml if it exists
+    local pixi_global_file="$HOME/.pixi/manifests/pixi-global.toml"
+    if [[ -f "$pixi_global_file" ]]; then
+        print_step "Backing up existing pixi-global.toml..."
+        mv "$pixi_global_file" "$pixi_global_file.bak"
+        print_success "Backup created: $pixi_global_file.bak"
+        echo ""
+    fi
+    
+    # Deploy dotfiles
+    print_step "Deploying dotfiles..."
+    dotter deploy
+    print_success "Dotfiles deployed"
+    echo ""
+    
+    # Sync global packages
+    print_step "Syncing global packages..."
+    pixi global sync
+    print_success "Global packages synced"
+    echo ""
+    
+    print_success "🎉 Setup completed successfully!"
+    echo ""
+    
+    # Ask to launch zsh
+    read -p "🚀 Launch zsh now? (Y/n): " -n 1 -r
+    echo ""
+    
+    if [[ ! $REPLY =~ ^[Nn]$ ]]; then
+        print_success "Launching zsh..."
+        exec zsh
+    else
+        print_info "You can launch zsh manually with: zsh"
+    fi
+}
+
+# Uninstall nanokit
+uninstall() {
+    print_ascii_art
+    
+    print_warning "Uninstall nanokit?"
+    echo ""
+    
+    read -p "🗑️  Are you sure you want to proceed? (y/N): " -n 1 -r
+    echo ""
+    
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        print_step "Uninstalling nanokit..."
+        
+        # Remove symlinks
+        dotter undeploy -d
+        dotter undeploy
+        
+        # Create empty pixi-global.toml
+        print_step "Removing nanokit global tools..."
+        touch ~/.pixi/manifests/pixi-global.toml
+        pixi global sync
+
+        echo ""
+        print_success "Nanokit uninstalled successfully!"
+    else
+        print_info "Uninstall cancelled"
+    fi
+}
+
+# Main function
+main() {
+    case "${1:-}" in
+        "install")
+            install
+            ;;
+        "uninstall")
+            uninstall
+            ;;
+        "--help"|"-h"|"help")
+            show_help
+            ;;
+        "")
+            show_help
+            ;;
+        *)
+            print_error "Unknown command: $1"
+            echo ""
+            show_help
+            exit 1
+            ;;
+    esac
+}
+
+# Run main function with all arguments
+main "$@"

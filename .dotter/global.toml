@@ -1,0 +1,19 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+nvim = { target = "$HOME/.config/nvim", type = "symbolic", recurse = false }
+zshrc = "$HOME/.zshrc"
+tigrc = "$HOME/.tigrc"
+"pixi-global.toml" = "$HOME/.pixi/manifests/pixi-global.toml"
+"sheldon.toml" = "$HOME/.config/sheldon/plugins.toml"
+"tmux.conf" = "$HOME/.tmux.conf"
+"starship.toml" = "$HOME/.config/starship.toml"
+
+[default.variables]
+
+[settings]
+default_target_type = "symbolic"
+recurse = false

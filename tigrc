@@ -1,0 +1,11 @@
+set main-view = id date author commit-title:graph=yes,refs=yes
+
+# git gc を無効化
+bind generic G none
+bind generic 9 !@sh -c "echo %(commit) | bp"
+
+bind status C !git commit -v
+bind status R ?git checkout %(file)
+
+bind main c ?git checkout %(commit)
+bind main b ?git checkout -b tmp %(commit)
