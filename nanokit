@@ -126,6 +126,18 @@ install() {
 uninstall() {
     print_ascii_art
     
+    print_warning "Confirm you exited (pixi-installed) zsh! Execute ./nanokit uninstall in bash."
+    echo ""
+    
+    read -p "🐚 Are you running this in bash (not pixi zsh)? (Y/n): " -n 1 -r
+    echo ""
+    
+    if [[ $REPLY =~ ^[Nn]$ ]]; then
+        print_info "Please exit zsh and run './nanokit uninstall' in bash"
+        exit 0
+    fi
+    
+    echo ""
     print_warning "Uninstall nanokit?"
     echo ""
     
