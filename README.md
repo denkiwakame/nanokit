@@ -277,8 +277,8 @@ The tmux configuration uses `Ctrl+a` as the prefix key (instead of the default `
 #### Pane Management
 | Key Binding | Description |
 |-------------|-------------|
-| `Ctrl+a` then `|` | Split window horizontally |
-| `Ctrl+a` then `-` | Split window vertically |
+| `Ctrl+a` then `-` | Split window horizontally |
+| `Ctrl+a` then `|` | Split window vertically |
 | `Ctrl+a` then `h` | Move to left pane |
 | `Ctrl+a` then `j` | Move to bottom pane |
 | `Ctrl+a` then `k` | Move to top pane |
