@@ -161,9 +161,9 @@ pixi global sync
 
 For local terminals, installing fonts is recommended. Fonts will be installed to `$HOME/.local/fonts`.
 
-| **🐧 Linux** | **🪟 WSL** |
-|-----------|---------|
-| `./setup_fonts.sh` | `choco install nerd-fonts-hack`<br><br>*Note: Requires administrator privileges*<br><br>**Install Chocolatey first:**<br>`Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))` |
+| **🐧 Linux** | **🍎 Mac OS** | **🪟 Windows Terminal** |
+|-----------|-----------|---------|
+| `./setup_fonts.sh` | `brew tap homebrew/cask-fonts` <br> `brew install --cask font-hack-nerd-font` | `choco install nerd-fonts-hack`<br>*Note: Requires administrator privileges* |
 
 See [Starship Presets](https://starship.rs/presets/) for more customization options.
 
@@ -220,7 +220,7 @@ see [Pixi Global: Declarative Tool Installation](https://prefix.dev/blog/pixi_gl
 
 ### 🚀 Starship Settings
 
-Customize your prompt by editing [starship.toml](starship.toml). 
+Customize your prompt by editing [starship.toml](starship.toml). See [Starship Themes](https://starship.rs/presets/).
 
 For detailed configuration options, see the [Starship documentation](https://starship.rs/).
 
@@ -229,6 +229,12 @@ For detailed configuration options, see the [Starship documentation](https://sta
 Manage plugins by editing [zshrc](zshrc) and [sheldon.toml](sheldon.toml).
 
 For more plugin management options, see the [Sheldon documentation](https://sheldon.cli.rs/).
+
+### 🦀 Dotfiles Management
+
+Manage symlinks for dotfiles by editing [.dotter/global.toml](./dotter/global.toml).
+
+For detailed configuration options, see the [dotter documentation](https://github.com/SuperCuber/dotter/wiki).
 
 ### 🚀 ghq + zoxide = ❤️
 
