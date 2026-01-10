@@ -109,3 +109,13 @@ exposed = { dotter = "dotter" }
 channels = ["conda-forge"]
 dependencies = { lsdeluxe = "*" }
 exposed = { lsd = "lsd" }
+
+[envs.awscli]
+channels = ["conda-forge"]
+dependencies = { awscli = "*" }
+exposed = { aws = "aws", aws_completer = "aws_completer" }
+
+[envs.rclone]
+channels = ["conda-forge"]
+dependencies = { rclone = "*" }
+exposed = { rclone = "rclone" }

@@ -198,6 +198,8 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | 🦀 | **dotter-rs** | Dotfile manager | `dotter` | [SuperCuber/dotter](https://github.com/SuperCuber/dotter) |
 | 📂 | **lsdeluxe** | Modern ls replacement | `lsd` | [lsd-rs/lsd](https://github.com/lsd-rs/lsd) |
 | ⚙️ | **nodejs** | Node.js runtime | `node`, `npm`, `npx` | [nodejs/node](https://github.com/nodejs/node) |
+| ☁️ | **rclone** | rsync for cloud storage | `rclone` | [rclone/rclone](https://github.com/rclone/rclone) |
+| ☁️ | **aws** | CLI for AWS | `aws` `aws_completer` | [aws/aws-cli](https://github.com/aws/aws-cli) |
 | 📝 | **neovim** | Neovim with Node.js, Lua, Python support | `nvim` | [neovim/neovim](https://github.com/neovim/neovim) |
 
 Add your favorite tools with:
