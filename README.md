@@ -17,10 +17,11 @@
 [![Powered by Pixi](https://img.shields.io/badge/powered%20by-pixi-yellow)](https://pixi.sh)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
-> ⚡ A lightweight, fast, and efficient **cross-platform** development setup for Linux (x86/arm), OSX  
-> ✨ **No sudo required** - Everything installs to `$HOME/.pixi`, completely user-local  
-> 🪄 **Pixi** as a [shell tool manager](https://prefix.dev/blog/using-pixi-as-a-system-package-manager-with-shortcuts-and-completions) - Keep your tools up-to-date by declarative management
-> 🐚 **zsh** 🎩 **sheldon** 🚀 **starship** - Modern shell experience with plugin management
+- ⚡ A lightweight, fast, and efficient **cross-platform** development setup for Linux (x86/arm), OSX  
+- ✨ **No sudo required** - Everything installs to `$HOME/.pixi`, completely user-local  
+- 🪄 **Pixi** as a [shell tool manager](https://prefix.dev/blog/using-pixi-as-a-system-package-manager-with-shortcuts-and-completions) - Keep your tools up-to-date by declarative management
+- 🦀 **dotter** as a simple [dotfile manager](.dotter/global.toml) that links / unlinks dotfiles in nanokit
+- 🐚 **zsh** 🎩 [**sheldon**](https://sheldon.cli.rs/) 🚀 [**starship**](https://starship.rs/) - Modern shell experience with plugin management
 
 <img src="https://github.com/user-attachments/assets/cb9c1905-577d-4db2-ab4c-1bfa9efce720" width="400"><img src="https://github.com/user-attachments/assets/56fb4d2e-7a40-4be2-8a97-99cdb1308b28" width="400">
 
@@ -172,36 +173,37 @@ See [Starship Presets](https://starship.rs/presets/) for more customization opti
 
 The following tools are available through [pixi-global.toml](pixi-global.toml):
 
-| Tool | Description | Exposed Command | GitHub |
-|------|-------------|-----------------|---------|
-| **git** | Version control system | `git`, `git-cvsserver`, `git-receive-pack`, `git-shell`, `git-upload-archive`, `git-upload-pack`, `gitk`, `scalar` | [git/git](https://github.com/git/git) |
-| **gh** | GitHub CLI | `gh` | [cli/cli](https://github.com/cli/cli) |
-| **zsh** | Z shell | `zsh`, `zsh-5.9` | [zsh-users/zsh](https://github.com/zsh-users/zsh) |
-| **sheldon** | Fast and configurable shell plugin manager | `sheldon` | [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) |
-| **starship** | Minimal, beautifl prompt for any shell | `starship` | [starship/starship](https://github.com/starship/starship) |
-| **sshs** | SSH connection manager | `sshs` | [quantumsheep/sshs](https://github.com/quantumsheep/sshs) |
-| **htop** | Interactive process viewer | `htop` | [htop-dev/htop](https://github.com/htop-dev/htop) |
-| **fzf** | Fuzzy finder | `fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
-| **go-ghq** | Git repository manager | `ghq` | [x-motemen/ghq](https://github.com/x-motemen/ghq) |
-| **zoxide** | Smart directory jumper | `zoxide` | [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
-| **make** | Build automation tool | `make` | [mirror/make](https://github.com/mirror/make) |
-| **tig** | Text-mode interface for Git | `tig` | [jonas/tig](https://github.com/jonas/tig) |
-| **bottom** | System monitor | `btm` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
-| **tree** | Directory tree display | `tree` | [Old-Man-Programmer/tree](https://github.com/Old-Man-Programmer/tree) |
-| **xsel** | X11 clipboard manipulation | `xsel` | [kfish/xsel](https://github.com/kfish/xsel) |
-| **pueue** | Local job queue manager | `pueue`, `pueued` | [Nukesor/pueue](https://github.com/Nukesor/pueue) |
-| **tmux** | Terminal multiplexer | `tmux` | [tmux/tmux](https://github.com/tmux/tmux) |
-| **dua-cli** | Disk usage analyzer | `dua` | [Byron/dua-cli](https://github.com/Byron/dua-cli) |
-| **diskonaut** | Disk space navigator | `diskonaut` | [imsnif/diskonaut](https://github.com/imsnif/diskonaut) |
-| **bat** | Better cat with syntax highlighting | `bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
-| **nodejs** | Node.js runtime | `node`, `npm`, `npx` | [nodejs/node](https://github.com/nodejs/node) |
-| **dotter-rs** | Dotfile manager | `dotter` | [SuperCuber/dotter](https://github.com/SuperCuber/dotter) |
-| **lsdeluxe** | Modern ls replacement | `lsd` | [lsd-rs/lsd](https://github.com/lsd-rs/lsd) |
-| **neovim** | Neovim with Node.js, Lua, Python support | `nvim` | [neovim/neovim](https://github.com/neovim/neovim) |
+|| Tool | Description | Exposed Command | GitHub |
+|-|------|-------------|-----------------|---------|
+| 🔀| **git** | Version control system | `git`, `git-cvsserver`, `git-receive-pack`, `git-shell`, `git-upload-archive`, `git-upload-pack`, `gitk`, `scalar` | [git/git](https://github.com/git/git) |
+| :octocat: | **gh** | GitHub CLI | `gh` | [cli/cli](https://github.com/cli/cli) |
+| 🔀 | **tig** | TUI client for Git | `tig` | [jonas/tig](https://github.com/jonas/tig) |
+| 🐚 | **zsh** | Z shell | `zsh`, `zsh-5.9` | [zsh-users/zsh](https://github.com/zsh-users/zsh) |
+| 🎩 | **sheldon** | Fast and configurable shell plugin manager | `sheldon` | [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) |
+| 🚀 | **starship** | Minimal, beautifl prompt for any shell | `starship` | [starship/starship](https://github.com/starship/starship) |
+| 🔐 | **sshs** | TUI client for ssh | `sshs` | [quantumsheep/sshs](https://github.com/quantumsheep/sshs) |
+| 📊 | **htop** | Interactive process viewer | `htop` | [htop-dev/htop](https://github.com/htop-dev/htop) |
+| 📊 | **bottom** | System monitor | `btm` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
+| 🔎 | **fzf** | Fuzzy finder | `fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
+| 📁 | **tree** | Directory tree display | `tree` | [Old-Man-Programmer/tree](https://github.com/Old-Man-Programmer/tree) |
+| 📁 | **go-ghq** | Git repository manager | `ghq` | [x-motemen/ghq](https://github.com/x-motemen/ghq) |
+| 🌀 | **zoxide** | Smart directory jumper | `zoxide` | [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
+| 🛠️ | **make** | Build automation tool | `make` | [mirror/make](https://github.com/mirror/make) |
+| 📋 | **xsel** | X11 clipboard manipulation | `xsel` | [kfish/xsel](https://github.com/kfish/xsel) |
+| 🗄️ | **pueue** | Local job queue manager | `pueue`, `pueued` | [Nukesor/pueue](https://github.com/Nukesor/pueue) |
+| 🪟 | **tmux** | Terminal multiplexer | `tmux` | [tmux/tmux](https://github.com/tmux/tmux) |
+| 💽 | **dua-cli** | Disk usage analyzer | `dua` | [Byron/dua-cli](https://github.com/Byron/dua-cli) |
+| 💽 | **diskonaut** | Disk space navigator | `diskonaut` | [imsnif/diskonaut](https://github.com/imsnif/diskonaut) |
+| 🦇 | **bat** | Better cat with syntax highlighting | `bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
+| 🦀 | **dotter-rs** | Dotfile manager | `dotter` | [SuperCuber/dotter](https://github.com/SuperCuber/dotter) |
+| 📂 | **lsdeluxe** | Modern ls replacement | `lsd` | [lsd-rs/lsd](https://github.com/lsd-rs/lsd) |
+| ⚙️ | **nodejs** | Node.js runtime | `node`, `npm`, `npx` | [nodejs/node](https://github.com/nodejs/node) |
+| 📝 | **neovim** | Neovim with Node.js, Lua, Python support | `nvim` | [neovim/neovim](https://github.com/neovim/neovim) |
 
 Add your favorite tools with:
 ```bash
-pixi global install <tool-name>
+pixi search <package-name>
+pixi global install <package-name>  # e.g. pixi global install python=3.13
 ```
 This will automatically update the [pixi-global.toml](pixi-global.toml) configuration.
 
@@ -212,6 +214,7 @@ automatically upgrade all tools **except for version-pinned packages**.
 
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/afa04a78-f626-4b34-80c8-503e7bc0aad1" />
 
+see [Pixi Global: Declarative Tool Installation](https://prefix.dev/blog/pixi_global) for details.
 
 ### 🚀 Starship Settings
 
