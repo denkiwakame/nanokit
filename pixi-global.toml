@@ -119,3 +119,8 @@ exposed = { aws = "aws", aws_completer = "aws_completer" }
 channels = ["conda-forge"]
 dependencies = { rclone = "*" }
 exposed = { rclone = "rclone" }
+
+[envs.helix]
+channels = ["conda-forge"]
+dependencies = { helix = "*" }
+exposed = { hx = "hx" }
