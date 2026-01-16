@@ -201,6 +201,7 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | ☁️ | **rclone** | rsync for cloud storage | `rclone` | [rclone/rclone](https://github.com/rclone/rclone) |
 | ☁️ | **aws** | CLI for AWS | `aws` `aws_completer` | [aws/aws-cli](https://github.com/aws/aws-cli) |
 | 📝 | **neovim** | Neovim with Node.js, Lua, Python support | `nvim` | [neovim/neovim](https://github.com/neovim/neovim) |
+| 📝 | **helix** | A post-modern modal text editor | `hx` | [helix-editor/helix](https://github.com/helix-editor/helix) |
 
 Add your favorite tools with:
 ```bash
