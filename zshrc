@@ -18,9 +18,12 @@ eval "$(zoxide init zsh)"
 export EDITOR="nvim"
 alias vi="nvim"
 
-# cat
+# 🐱 cat
 alias cat="bat -pp"
 
 # 📝 eza 
 alias ls="lsd"
 alias ll="lsd -l"
+
+# 💬 discord webhook
+export WEBHOOK_URL= 
