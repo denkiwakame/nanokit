@@ -181,6 +181,7 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | 🐚 | **zsh** | Z shell | `zsh`, `zsh-5.9` | [zsh-users/zsh](https://github.com/zsh-users/zsh) |
 | 🎩 | **sheldon** | Fast and configurable shell plugin manager | `sheldon` | [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) |
 | 🚀 | **starship** | Minimal, beautifl prompt for any shell | `starship` | [starship/starship](https://github.com/starship/starship) |
+| 🦀 | **dotter-rs** | Dotfile manager | `dotter` | [SuperCuber/dotter](https://github.com/SuperCuber/dotter) |
 | 🔐 | **sshs** | TUI client for ssh | `sshs` | [quantumsheep/sshs](https://github.com/quantumsheep/sshs) |
 | 📊 | **htop** | Interactive process viewer | `htop` | [htop-dev/htop](https://github.com/htop-dev/htop) |
 | 📊 | **bottom** | System monitor | `btm` | [ClementTsang/bottom](https://github.com/ClementTsang/bottom) |
@@ -195,9 +196,10 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | 💽 | **dua-cli** | Disk usage analyzer | `dua` | [Byron/dua-cli](https://github.com/Byron/dua-cli) |
 | 💽 | **diskonaut** | Disk space navigator | `diskonaut` | [imsnif/diskonaut](https://github.com/imsnif/diskonaut) |
 | 🦇 | **bat** | Better cat with syntax highlighting | `bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
-| 🦀 | **dotter-rs** | Dotfile manager | `dotter` | [SuperCuber/dotter](https://github.com/SuperCuber/dotter) |
 | 📂 | **lsdeluxe** | Modern ls replacement | `lsd` | [lsd-rs/lsd](https://github.com/lsd-rs/lsd) |
 | ⚙️ | **nodejs** | Node.js runtime | `node`, `npm`, `npx` | [nodejs/node](https://github.com/nodejs/node) |
+| ⚙️ | **jq** | Command-line JSON processor | `jq` | [jqlang/jq](https://github.com/jqlang/jq) |
+| 🌍 | **xh** | Friendly and fast tool for sending HTTP requests | `xh` | [ducaale/xh](https://github.com/ducaale/xh) |
 | ☁️ | **rclone** | rsync for cloud storage | `rclone` | [rclone/rclone](https://github.com/rclone/rclone) |
 | ☁️ | **aws** | CLI for AWS | `aws` `aws_completer` | [aws/aws-cli](https://github.com/aws/aws-cli) |
 | 📝 | **neovim** | Neovim with Node.js, Lua, Python support | `nvim` | [neovim/neovim](https://github.com/neovim/neovim) |
