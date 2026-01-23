@@ -124,3 +124,13 @@ exposed = { rclone = "rclone" }
 channels = ["conda-forge"]
 dependencies = { helix = "*" }
 exposed = { hx = "hx" }
+
+[envs.xh]
+channels = ["conda-forge"]
+dependencies = { xh = "*" }
+exposed = { xh = "xh", xhs = "xhs" }
+
+[envs.jq]
+channels = ["conda-forge"]
+dependencies = { jq = "*" }
+exposed = { jq = "jq" }
