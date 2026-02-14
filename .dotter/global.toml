@@ -11,6 +11,7 @@ tigrc = "$HOME/.tigrc"
 "sheldon.toml" = "$HOME/.config/sheldon/plugins.toml"
 "tmux.conf" = "$HOME/.tmux.conf"
 "starship.toml" = "$HOME/.config/starship.toml"
+"pueue.yml" = "$HOME/.config/pueue/pueue.yml"
 
 [default.variables]
 
