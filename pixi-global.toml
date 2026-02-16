@@ -7,8 +7,18 @@ exposed = { nvim = "nvim" }
 
 [envs.zsh]
 channels = ["conda-forge"]
-dependencies = { zsh = "==5.9", starship = "*", sheldon = "*" }
-exposed = { zsh = "zsh", starship = "starship", sheldon = "sheldon" }
+dependencies = { zsh = "==5.9" }
+exposed = { zsh = "zsh" }
+
+[envs.starship]
+channels = ["conda-forge"]
+dependencies = { starship = "*" }
+exposed = { starship = "starship" }
+
+[envs.sheldon]
+channels = ["conda-forge"]
+dependencies = { sheldon = "*" }
+exposed = { sheldon = "sheldon" }
 
 [envs.git]
 channels = ["conda-forge"]
