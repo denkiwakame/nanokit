@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pixi-install:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-64
+          - os: ubuntu-24.04-arm
+            platform: linux-aarch64
+          - os: macos-14
+            platform: osx-arm64
+          - os: macos-13
+            platform: osx-64
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.platform }}
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pixi
+        run: |
+          curl -fsSL https://pixi.sh/install.sh | bash
+          echo "${HOME}/.pixi/bin" >> "${GITHUB_PATH}"
+
+      - name: Install dotter
+        run: pixi global install dotter-rs
+
+      - name: Deploy dotfiles
+        run: dotter deploy
+
+      - name: Sync global packages
+        run: pixi global sync
+
+      - name: Test zsh
+        run: |
+          zsh --version
+          zsh -c 'echo "nanokit: zsh ok"'
+
+      - name: Test zsh config
+        run: |
+          zsh -c 'source ~/.zshrc && echo "nanokit: zshrc ok"'

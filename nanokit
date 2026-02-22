@@ -76,16 +76,31 @@ show_help() {
 # Install nanokit
 install() {
     print_ascii_art
-    
+
     print_step "Starting nanokit installation..."
     echo ""
-    
+
+    # Check if zsh is already installed
+    local skip_zsh=false
+    if command -v zsh &> /dev/null; then
+        print_warning "zsh is already installed: $(command -v zsh)"
+        zsh --version 2>&1 | head -1
+        echo ""
+        read -p "Install pixi-managed zsh? (Y/n): " -n 1 -r
+        echo ""
+        if [[ $REPLY =~ ^[Nn]$ ]]; then
+            skip_zsh=true
+            print_info "Skipping pixi-managed zsh installation"
+        fi
+        echo ""
+    fi
+
     # Install dotter
     print_step "Installing dotter..."
     pixi global install dotter-rs
     print_success "dotter installed"
     echo ""
-    
+
     # Backup existing pixi-global.toml if it exists
     local pixi_global_file="$HOME/.pixi/manifests/pixi-global.toml"
     if [[ -f "$pixi_global_file" ]]; then
@@ -94,26 +109,39 @@ install() {
         print_success "Backup created: $pixi_global_file.bak"
         echo ""
     fi
-    
+
     # Deploy dotfiles
     print_step "Deploying dotfiles..."
     dotter deploy
     print_success "Dotfiles deployed"
     echo ""
-    
+
+    # Remove zsh from pixi-global.toml if user chose to skip
+    if [[ "$skip_zsh" == true ]]; then
+        print_step "Removing pixi zsh from configuration..."
+        local tmpfile="${pixi_global_file}.tmp"
+        awk '
+            /^\[envs\.zsh\]/ { skip=1; next }
+            /^\[/ { skip=0 }
+            !skip
+        ' "$pixi_global_file" > "$tmpfile" && mv "$tmpfile" "$pixi_global_file"
+        print_success "pixi zsh removed from configuration"
+        echo ""
+    fi
+
     # Sync global packages
     print_step "Syncing global packages..."
     pixi global sync
     print_success "Global packages synced"
     echo ""
-    
+
     print_success "🎉 Setup completed successfully!"
     echo ""
-    
+
     # Ask to launch zsh
     read -p "🚀 Launch zsh now? (Y/n): " -n 1 -r
     echo ""
-    
+
     if [[ ! $REPLY =~ ^[Nn]$ ]]; then
         print_success "Launching zsh..."
         exec zsh

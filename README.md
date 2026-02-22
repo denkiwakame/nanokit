@@ -13,7 +13,8 @@
 ```
 
 # 🛠️ nanokit - minimal development environment
-[![Platform](https://img.shields.io/badge/platform-linux--64%20%7C%20linux--aarch64%20%7C%20osx--64-blue)](https://github.com/prefix-dev/pixi)
+[![CI](https://github.com/denkiwakame/nanokit/actions/workflows/ci.yml/badge.svg)](https://github.com/denkiwakame/nanokit/actions/workflows/ci.yml)
+[![Platform](https://img.shields.io/badge/platform-linux--64%20%7C%20linux--aarch64%20%7C%20osx--arm64%20%7C%20osx--64-blue)](https://github.com/prefix-dev/pixi)
 [![Powered by Pixi](https://img.shields.io/badge/powered%20by-pixi-yellow)](https://pixi.sh)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
