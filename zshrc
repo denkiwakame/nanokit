@@ -1,6 +1,12 @@
 # 🔧 Initialize completion system
 autoload -Uz compinit && compinit
 
+# 📜 History
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
+
 # 👾 For shell tools like Claude
 export PATH="$HOME/.local/bin:$PATH"
 
