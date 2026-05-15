@@ -317,6 +317,35 @@ Basic commands to get started:
 - `:Lazy` - Plugin manager interface  
 - `Ctrl+P` - Fuzzy file finder
 
+## 🔐 Supply Chain Security (Cooldown)
+
+To reduce the risk of installing recently-published (and potentially compromised) packages, nanokit ships **release-age cooldown** configs for `npm` and `uv`, managed by dotter.
+
+A 7-day cooldown blocks the majority of real-world supply chain incidents, since compromised packages are typically caught and pulled within hours or days. See [Package Managers Need to Cool Down](https://simonwillison.net/2026/mar/24/package-managers-need-to-cool-down/) and [Dependency Cooldowns](https://cooldowns.dev/).
+
+| Tool | Config file | Setting | Min version |
+|------|-------------|---------|-------------|
+| npm | [`npmrc`](npmrc) → `$HOME/.npmrc` | `min-release-age=7` (days) | npm v11.10.0+ |
+| uv | [`uv.toml`](uv.toml) → `$HOME/.config/uv/uv.toml` | `exclude-newer = "7 days"` | uv 0.11.2+ |
+
+### Bypass (when the latest version is genuinely needed)
+
+```bash
+npm install <pkg> --min-release-age 0
+uv add <pkg> --exclude-newer "0 days"
+```
+
+### ⚠️ Pixi
+
+Pixi's `exclude-newer` is currently [**workspace-only**](https://github.com/prefix-dev/pixi/issues/5810) — it is not available in user-level `~/.pixi/config.toml` ([config reference](https://pixi.prefix.dev/latest/reference/pixi_configuration/)). Add it manually to each project's `pixi.toml` | `pyproject.toml`:
+
+```toml
+[workspace]
+exclude-newer = "7d"  # requires pixi v0.67.0+
+```
+
+This applies to both conda and PyPI packages within that workspace. For `pixi global` (i.e. [`pixi-global.toml`](pixi-global.toml)), cooldown is not yet supported upstream.
+
 ## 🧪 Try nanokit in your OS
 
 Want to test nanokit without affecting your current setup? Create a temporary user:
