@@ -325,15 +325,8 @@ A 7-day cooldown blocks the majority of real-world supply chain incidents, since
 
 | Tool | Config file | Setting | Min version |
 |------|-------------|---------|-------------|
-| npm | [`npmrc`](npmrc) → `$HOME/.npmrc` | `min-release-age=7` (days) | npm v11.10.0+ |
-| uv | [`uv.toml`](uv.toml) → `$HOME/.config/uv/uv.toml` | `exclude-newer = "7 days"` | uv 0.11.2+ |
-
-### Bypass (when the latest version is genuinely needed)
-
-```bash
-npm install <pkg> --min-release-age 0
-uv add <pkg> --exclude-newer "0 days"
-```
+| npm | [`npmrc`](npmrc) → `$HOME/.npmrc` | `min-release-age=7` (days) | `npm v11.10.0+` |
+| uv | [`uv.toml`](uv.toml) → `$HOME/.config/uv/uv.toml` | `exclude-newer = "7 days"` | `uv 0.11.2+` |
 
 ### ⚠️ Pixi
 
