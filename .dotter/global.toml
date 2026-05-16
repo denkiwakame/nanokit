@@ -7,10 +7,12 @@ depends = []
 nvim = { target = "$HOME/.config/nvim", type = "symbolic", recurse = false }
 zshrc = "$HOME/.zshrc"
 tigrc = "$HOME/.tigrc"
+npmrc = "$HOME/.npmrc"
 "pixi-global.toml" = "$HOME/.pixi/manifests/pixi-global.toml"
 "sheldon.toml" = "$HOME/.config/sheldon/plugins.toml"
 "tmux.conf" = "$HOME/.tmux.conf"
 "starship.toml" = "$HOME/.config/starship.toml"
+"uv.toml" = "$HOME/.config/uv/uv.toml"
 
 [default.variables]
 
