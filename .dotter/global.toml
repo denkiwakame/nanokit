@@ -13,6 +13,7 @@ npmrc = "$HOME/.npmrc"
 "tmux.conf" = "$HOME/.tmux.conf"
 "starship.toml" = "$HOME/.config/starship.toml"
 "uv.toml" = "$HOME/.config/uv/uv.toml"
+"gwq.toml" = "$HOME/.config/gwq/config.toml"
 
 [default.variables]
 

@@ -189,6 +189,7 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | 🔎 | **fzf** | Fuzzy finder | `fzf` | [junegunn/fzf](https://github.com/junegunn/fzf) |
 | 📁 | **tree** | Directory tree display | `tree` | [Old-Man-Programmer/tree](https://github.com/Old-Man-Programmer/tree) |
 | 📁 | **go-ghq** | Git repository manager | `ghq` | [x-motemen/ghq](https://github.com/x-motemen/ghq) |
+| 🌲 | **gwq** | Git worktree manager | `gwq` | [d-kuro/gwq](https://github.com/d-kuro/gwq) |
 | 🌀 | **zoxide** | Smart directory jumper | `zoxide` | [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
 | 🛠️ | **make** | Build automation tool | `make` | [mirror/make](https://github.com/mirror/make) |
 | 📋 | **xsel** | X11 clipboard manipulation | `xsel` | [kfish/xsel](https://github.com/kfish/xsel) |
@@ -240,7 +241,7 @@ Manage symlinks for dotfiles by editing [.dotter/global.toml](./dotter/global.to
 
 For detailed configuration options, see the [dotter documentation](https://github.com/SuperCuber/dotter/wiki).
 
-### 🚀 ghq + zoxide = ❤️
+### 🚀 ghq + 🌲 gwq + 🌀 zoxide = ❤️
 
 The combination of [ghq](https://github.com/x-motemen/ghq) and [zoxide](https://github.com/ajeetdsouza/zoxide) creates a magical workflow for repository management:
 
@@ -259,7 +260,7 @@ ghq get https://github.com/user/project
 # Creates: ~/ghq/github.com/user/project
 ```
 
-#### 🧭 Smart Navigation with zoxide
+#### 🌀 Smart Navigation with zoxide
 
 Once you `cd` into any directory, [zoxide](https://github.com/ajeetdsouza/zoxide) remembers that location. You can then use:
 
@@ -269,6 +270,24 @@ z <partial-name>  # Jump to directory matching the pattern
 ```
 
 No more `cd ../../../project` - just `zi` and you're there! 🎯
+
+#### 🌲 Worktree Management with gwq
+
+[gwq](https://github.com/d-kuro/gwq) is to **branches** what `ghq` is to **repositories** — a structured, ghq-style manager for `git worktree`. Instead of juggling `git worktree add ../some-path` by hand, gwq lays worktrees out under `$GHQ_ROOT` using the naming template configured in [`gwq.toml`](gwq.toml):
+
+```
+$GHQ_ROOT/github.com/{owner}/{repo}.{branch}
+```
+
+Common commands:
+
+```bash
+gwq add <branch>     # create a worktree for <branch> (auto-cd into it)
+gwq list             # list avaialable worktrees
+gwq remove           # prune a worktree
+```
+
+With `auto_cd_on_add = true` (already set in [`gwq.toml`](gwq.toml)) and the shell integration sourced in [`zshrc`](zshrc) (`source <(gwq completion zsh)`), `gwq add` drops you straight inside the new worktree, 🌀 zoxide quietly memorizes the path along the way. So next time, just `zi` and you're back in the worktree you wanted. 🎯
 
 ### 🖥️ Tmux Key Bindings
 
