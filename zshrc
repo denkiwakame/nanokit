@@ -23,6 +23,11 @@ base16_gruvbox-dark-hard
 # 🌀 zoxide
 eval "$(zoxide init zsh)"
 
+# 📁 root directory for ghq ($GHQ_ROOT/github.com/$owner/$repo)
+export GHQ_ROOT="$HOME/ghq"
+# 🌳 gwq
+source <(gwq completion zsh)
+
 # 📝 editor
 export EDITOR="nvim"
 alias vi="nvim"
@@ -33,6 +38,3 @@ alias cat="bat -pp"
 # 📝 eza 
 alias ls="lsd"
 alias ll="lsd -l"
-
-# 💬 discord webhook
-export WEBHOOK_URL= 

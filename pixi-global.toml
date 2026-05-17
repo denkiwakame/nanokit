@@ -149,3 +149,8 @@ exposed = { jq = "jq" }
 channels = ["conda-forge"]
 dependencies = { git-lfs = "*" }
 exposed = { git-lfs = "git-lfs" }
+
+[envs.gwq]
+channels = ["conda-forge"]
+dependencies = { gwq = "*" }
+exposed = { gwq = "gwq" }
