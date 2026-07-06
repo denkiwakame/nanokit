@@ -1,0 +1,14 @@
+[keys]
+prefix = "ctrl+a"
+new_workspace = "prefix+c"
+next_workspace = "prefix+n"
+previous_workspace = "prefix+p"
+new_worktree = "prefix+t"
+
+new_tab = "ctrl+t"
+next_tab = "ctrl+tab"
+previous_tab = "ctrl+shift+tab"
+
+split_vertical = "prefix+|"
+split_horizontal = "prefix+-"
+reload_config = "prefix+r"
