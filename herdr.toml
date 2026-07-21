@@ -13,3 +13,6 @@ previous_tab = "ctrl+shift+tab"
 split_vertical = "prefix+|"
 split_horizontal = "prefix+-"
 reload_config = "prefix+r"
+
+[terminal]
+default_shell = "zsh"
