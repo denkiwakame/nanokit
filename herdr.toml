@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 prefix = "ctrl+a"
 new_workspace = "prefix+c"
@@ -5,7 +6,7 @@ next_workspace = "prefix+n"
 previous_workspace = "prefix+p"
 new_worktree = "prefix+t"
 
-new_tab = "ctrl+t"
+new_tab = "prefix+tab"
 next_tab = "ctrl+tab"
 previous_tab = "ctrl+shift+tab"
 
