@@ -13,3 +13,12 @@ previous_tab = "ctrl+shift+tab"
 split_vertical = "prefix+|"
 split_horizontal = "prefix+-"
 reload_config = "prefix+r"
+
+[ui]
+agent_panel_sort = "spaces"
+
+[[keys.command]]
+key = "prefix+i"
+type = "plugin_action"
+command = "flock.farm.open"
+description = "Open Flock Farm"
