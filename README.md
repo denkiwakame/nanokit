@@ -336,16 +336,27 @@ Basic commands to get started:
 - `:Lazy` - Plugin manager interface  
 - `Ctrl+P` - Fuzzy file finder
 
-## 🔐 Supply Chain Security (Cooldown)
+## 🔐 Supply Chain Security
 
-To reduce the risk of installing recently-published (and potentially compromised) packages, nanokit ships **release-age cooldown** configs for `npm` and `uv`, managed by dotter.
+nanokit ships supply chain hardening configs for `npm` and `uv`, managed by dotter.
 
-A 7-day cooldown blocks the majority of real-world supply chain incidents, since compromised packages are typically caught and pulled within hours or days. See [Package Managers Need to Cool Down](https://simonwillison.net/2026/mar/24/package-managers-need-to-cool-down/) and [Dependency Cooldowns](https://cooldowns.dev/).
+| Tool | Config file | Setting | Effect |
+|------|-------------|---------|--------|
+| npm | [`npmrc`](npmrc) → `$HOME/.npmrc` | `registry=https://npm.flatt.tech` | 🛡️ blocks known-malicious packages |
+| uv | [`uv.toml`](uv.toml) → `$HOME/.config/uv/uv.toml` | `exclude-newer = "7 days"` | ⏳ skips packages published in the last 7 days |
 
-| Tool | Config file | Setting | Min version |
-|------|-------------|---------|-------------|
-| npm | [`npmrc`](npmrc) → `$HOME/.npmrc` | `min-release-age=7` (days) | `npm v11.10.0+` |
-| uv | [`uv.toml`](uv.toml) → `$HOME/.config/uv/uv.toml` | `exclude-newer = "7 days"` | `uv 0.11.2+` |
+### 🛡️ npm: Takumi Guard by GMO Flatt Security
+
+[Takumi Guard](https://shisho.dev/docs/t/guard/quickstart/npm/) is a read-only npm registry proxy that rejects known-malicious packages (malware, typosquats, compromised releases) before the tarball is downloaded. One line in [`npmrc`](npmrc), no account required — works with `npm` / `pnpm` / `yarn` and needs no lockfile migration.
+
+> [!NOTE]
+> The proxy is read-only — publish with `npm publish --registry=https://registry.npmjs.org/`.
+
+See the [quickstart](https://shisho.dev/docs/t/guard/quickstart/npm/) for optional tokens (breach notifications) and yarn berry setup.
+
+### ⏳ uv: Release-Age Cooldown
+
+A 7-day cooldown blocks most real-world supply chain incidents, since compromised packages are typically caught and pulled within hours or days. See [Package Managers Need to Cool Down](https://simonwillison.net/2026/mar/24/package-managers-need-to-cool-down/) and [Dependency Cooldowns](https://cooldowns.dev/). npm supports the same via `min-release-age=7` (`npm v11.10.0+`) if you want both defenses.
 
 ### ⚠️ Pixi
 
