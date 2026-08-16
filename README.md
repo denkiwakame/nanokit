@@ -317,6 +317,28 @@ herdr config check                # validate config.toml
 
 See the [herdr documentation](https://herdr.dev/docs) for the full action list.
 
+#### 🐏 Plugins
+
+herdr plugins are **not** dotfiles - they are installed through the CLI and registered in herdr's own user-global registry (`$HOME/.config/herdr/plugins.json`), which holds machine-local absolute paths and resolved commits. So they are deliberately left out of dotter, and installed by hand instead:
+
+```bash
+herdr plugin install <owner>/<repo>   # install from GitHub (add --ref <commit> to pin)
+herdr plugin link <path>              # register a local plugin directory
+herdr plugin list                     # list installed plugins
+herdr plugin config-dir <plugin-id>   # print a plugin's user config directory
+```
+
+[herdr.toml](herdr.toml) binds `Ctrl+a` then `i` to [Flock](https://github.com/ragamo/herdr-flock) 🐑, which draws your agents as pixel-art sheep on a top-down farm. The binding is dead until the plugin is installed:
+
+```bash
+herdr plugin install ragamo/herdr-flock
+```
+
+> [!NOTE]
+> Flock builds from source with `cargo build --release`, so it needs a Rust toolchain on `PATH` - which nanokit does **not** manage. Install one with `pixi global install rust` (or [rustup](https://rustup.rs/)) first, or just drop the `[[keys.command]]` block from [herdr.toml](herdr.toml) if you don't want the farm.
+
+See the [plugin documentation](https://herdr.dev/docs/plugins) for writing your own.
+
 ### ⌨️ Key Bindings - 🐑 herdr / 🪟 tmux
 
 Both [herdr.toml](herdr.toml) and [tmux.conf](tmux.conf) use `Ctrl+a` as the prefix key (instead of tmux's default `Ctrl+b`) and **share the same bindings**, so your muscle memory carries over between the two.
