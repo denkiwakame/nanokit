@@ -22,6 +22,7 @@
 - 🪄 **Pixi** as a [shell tool manager](https://prefix.dev/blog/using-pixi-as-a-system-package-manager-with-shortcuts-and-completions) - Keep your tools up-to-date by declarative management
 - 🦀 **dotter** as a simple [dotfile manager](.dotter/global.toml) that links / unlinks dotfiles in nanokit
 - 🐚 **zsh** 🎩 [**sheldon**](https://sheldon.cli.rs/) 🚀 [**starship**](https://starship.rs/) - Modern shell experience with plugin management
+- 🐑 [**herdr**](https://herdr.dev/) 🪟 **tmux** - Run your coding agents in persistent, reattachable terminal workspaces, with 🌲 **gwq** git worktrees to keep them out of each other's way
 
 <img src="https://github.com/user-attachments/assets/cb9c1905-577d-4db2-ab4c-1bfa9efce720" width="400"><img src="https://github.com/user-attachments/assets/56fb4d2e-7a40-4be2-8a97-99cdb1308b28" width="400">
 
@@ -134,10 +135,14 @@ pixi global sync
 ```
 #### Start your 🐚 zsh
 
-Launch zsh shell or tmux:
+Launch zsh shell, herdr, or tmux:
 
 ```bash
 zsh
+```
+
+```bash
+herdr
 ```
 
 ```bash
@@ -195,6 +200,7 @@ The following tools are available through [pixi-global.toml](pixi-global.toml):
 | 📋 | **xsel** | X11 clipboard manipulation | `xsel` | [kfish/xsel](https://github.com/kfish/xsel) |
 | 🗄️ | **pueue** | Local job queue manager | `pueue`, `pueued` | [Nukesor/pueue](https://github.com/Nukesor/pueue) |
 | 🪟 | **tmux** | Terminal multiplexer | `tmux` | [tmux/tmux](https://github.com/tmux/tmux) |
+| 🐑 | **herdr** | Agent multiplexer - terminal workspace manager for AI coding agents | `herdr` | [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) |
 | 💽 | **dua-cli** | Disk usage analyzer | `dua` | [Byron/dua-cli](https://github.com/Byron/dua-cli) |
 | 💽 | **diskonaut** | Disk space navigator | `diskonaut` | [imsnif/diskonaut](https://github.com/imsnif/diskonaut) |
 | 🦇 | **bat** | Better cat with syntax highlighting | `bat` | [sharkdp/bat](https://github.com/sharkdp/bat) |
@@ -289,35 +295,63 @@ gwq remove           # prune a worktree
 
 With `auto_cd_on_add = true` (already set in [`gwq.toml`](gwq.toml)) and the shell integration sourced in [`zshrc`](zshrc) (`source <(gwq completion zsh)`), `gwq add` drops you straight inside the new worktree, 🌀 zoxide quietly memorizes the path along the way. So next time, just `zi` and you're back in the worktree you wanted. 🎯
 
-### 🖥️ Tmux Key Bindings
+### 🐑 herdr - Agent Multiplexer
 
-The tmux configuration uses `Ctrl+a` as the prefix key (instead of the default `Ctrl+b`). Here are the essential key bindings:
+[herdr](https://herdr.dev/) is tmux for **coding agents**. Each agent runs in its own real terminal on a persistent server, so closing the laptop (or dropping an SSH connection) doesn't kill the run — you just reattach later, from anywhere:
 
-#### Basic Commands
+```bash
+herdr                             # launch or attach to the persistent session
+herdr --session <name>            # named session
+herdr --remote <ssh-target>       # attach to herdr running on another box
+herdr status                      # local client / running server status
+```
+
+The agent panel shows which agents are **blocked**, **working**, or **done** at a glance, so a fleet of agents stays legible from one screen. Paired with 🌲 gwq worktrees, each agent gets its own branch checkout and they never stomp on each other.
+
+Configure it by editing [herdr.toml](herdr.toml) → `$HOME/.config/herdr/config.toml`, then:
+
+```bash
+herdr server reload-config        # apply config.toml to the running server
+herdr config check                # validate config.toml
+```
+
+See the [herdr documentation](https://herdr.dev/docs) for the full action list.
+
+### ⌨️ Key Bindings - 🐑 herdr / 🪟 tmux
+
+Both [herdr.toml](herdr.toml) and [tmux.conf](tmux.conf) use `Ctrl+a` as the prefix key (instead of tmux's default `Ctrl+b`) and **share the same bindings**, so your muscle memory carries over between the two.
+
+#### Workspaces / Windows
+| Key Binding | 🐑 herdr | 🪟 tmux |
+|-------------|----------|---------|
+| `Ctrl+a` then `c` | Create new workspace | Create new window (in current directory) |
+| `Ctrl+a` then `n` | Next workspace | Next window |
+| `Ctrl+a` then `p` | Previous workspace | Previous window |
+| `Ctrl+a` then `t` | Create new 🌲 git worktree | - |
+| `Ctrl+a` then `w` | - | Choose window from list |
+
+#### Panes
+| Key Binding | 🐑 herdr | 🪟 tmux |
+|-------------|----------|---------|
+| `Ctrl+a` then `\|` | Split vertically | Split window vertically |
+| `Ctrl+a` then `-` | Split horizontally | Split window horizontally |
+| `Ctrl+a` then `h` / `j` / `k` / `l` | - | Move to left / bottom / top / right pane |
+
+#### Tabs (herdr only)
 | Key Binding | Description |
 |-------------|-------------|
-| `Ctrl+a` then `?` | Show help and all key bindings |
-| `Ctrl+a` then `r` | Reload tmux configuration |
+| `Ctrl+a` then `Tab` | Create new tab |
+| `Ctrl+Tab` | Next tab |
+| `Ctrl+Shift+Tab` | Previous tab |
 
-#### Window Management
-| Key Binding | Description |
-|-------------|-------------|
-| `Ctrl+a` then `c` | Create new window (in current directory) |
-| `Ctrl+a` then `w` | Choose window from list |
-| `Ctrl+a` then `n` | Next window |
-| `Ctrl+a` then `p` | Previous window |
+#### Misc
+| Key Binding | 🐑 herdr | 🪟 tmux |
+|-------------|----------|---------|
+| `Ctrl+a` then `r` | Reload configuration | Reload `~/.tmux.conf` |
+| `Ctrl+a` then `i` | Open Flock Farm (plugin action) | - |
+| `Ctrl+a` then `?` | - | Show help and all key bindings |
 
-#### Pane Management
-| Key Binding | Description |
-|-------------|-------------|
-| `Ctrl+a` then `-` | Split window horizontally |
-| `Ctrl+a` then `\|` | Split window vertically |
-| `Ctrl+a` then `h` | Move to left pane |
-| `Ctrl+a` then `j` | Move to bottom pane |
-| `Ctrl+a` then `k` | Move to top pane |
-| `Ctrl+a` then `l` | Move to right pane |
-
-#### Copy Mode (Vi-style)
+#### Copy Mode (tmux, Vi-style)
 | Key Binding | Description |
 |-------------|-------------|
 | `Ctrl+a` then `[` | Enter copy mode |
