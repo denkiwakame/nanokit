@@ -14,6 +14,7 @@ npmrc = "$HOME/.npmrc"
 "starship.toml" = "$HOME/.config/starship.toml"
 "uv.toml" = "$HOME/.config/uv/uv.toml"
 "gwq.toml" = "$HOME/.config/gwq/config.toml"
+"herdr.toml" = "$HOME/.config/herdr/config.toml"
 
 [default.variables]
 

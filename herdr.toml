@@ -1,0 +1,27 @@
+onboarding = false
+[keys]
+prefix = "ctrl+a"
+new_workspace = "prefix+c"
+next_workspace = "prefix+n"
+previous_workspace = "prefix+p"
+new_worktree = "prefix+t"
+
+new_tab = "prefix+tab"
+next_tab = "ctrl+tab"
+previous_tab = "ctrl+shift+tab"
+
+split_vertical = "prefix+|"
+split_horizontal = "prefix+-"
+reload_config = "prefix+r"
+
+[terminal]
+default_shell = "zsh"
+
+[ui]
+agent_panel_sort = "spaces"
+
+[[keys.command]]
+key = "prefix+i"
+type = "plugin_action"
+command = "flock.farm.open"
+description = "Open Flock Farm"
