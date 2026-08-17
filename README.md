@@ -334,9 +334,6 @@ herdr plugin config-dir <plugin-id>   # print a plugin's user config directory
 herdr plugin install ragamo/herdr-flock
 ```
 
-> [!NOTE]
-> Flock builds from source with `cargo build --release`, so it needs a Rust toolchain on `PATH` - which nanokit does **not** manage. Install one with `pixi global install rust` (or [rustup](https://rustup.rs/)) first, or just drop the `[[keys.command]]` block from [herdr.toml](herdr.toml) if you don't want the farm.
-
 See the [plugin documentation](https://herdr.dev/docs/plugins) for writing your own.
 
 ### ⌨️ Key Bindings - 🐑 herdr / 🪟 tmux
@@ -358,13 +355,6 @@ Both [herdr.toml](herdr.toml) and [tmux.conf](tmux.conf) use `Ctrl+a` as the pre
 | `Ctrl+a` then `\|` | Split vertically | Split window vertically |
 | `Ctrl+a` then `-` | Split horizontally | Split window horizontally |
 | `Ctrl+a` then `h` / `j` / `k` / `l` | - | Move to left / bottom / top / right pane |
-
-#### Tabs (herdr only)
-| Key Binding | Description |
-|-------------|-------------|
-| `Ctrl+a` then `Tab` | Create new tab |
-| `Ctrl+Tab` | Next tab |
-| `Ctrl+Shift+Tab` | Previous tab |
 
 #### Misc
 | Key Binding | 🐑 herdr | 🪟 tmux |
